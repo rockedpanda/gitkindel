@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>目前可以访问以下源码：</p>
+    <ul>
+    <% for(var i in projects) {%>
+      <li><a href="/kpw/<%=projects[i] %>"><%=projects[i]%></a></li>
+    <%}%>
+    </ul>
+  </body>
+</html>
