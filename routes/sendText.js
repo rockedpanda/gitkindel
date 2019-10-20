@@ -1,5 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const tmpPath = path.join(__dirname, '../temp');
+if(!fs.existsSync(tmpPath)){
+    fs.mkdirSync(tmpPath);
+}
 
 function getLocalFilePath(p){
     console.log(p);

@@ -9,7 +9,7 @@ var serveIndex = require("serve-index");
 var index = require('./routes/index');
 var users = require('./routes/users');
 var sendText = require('./routes/sendText');
-
+var getGitCode = require('./routes/getCode.js');
 var app = express();
 
 // view engine setup
@@ -26,13 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   "/kpw",
   //express.static(path.join(__dirname, "temp")),
-  serveIndex(path.join(__dirname, "temp"), { icons: true })
+  serveIndex(path.join(__dirname, "temp"), { icons: false })
 );
 app.use("/kpw",sendText);
-
-function sendText(req, res, next){
-
-}
+app.use('/get_code', getGitCode);
+//app.use('/remove', function(req, res,next){
+//  
+//})
 
 app.use('/', index);
 app.use('/users', users);
